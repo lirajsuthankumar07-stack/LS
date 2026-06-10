@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liraj Suthankumar | Premium Post-Production Portfolio</title>
+    <style>
+        /* Apple Luxury Design System (Pure Monochrome & High-Contrast) */
+        :root {
+            --apple-black: #000000;
+            --apple-studio-bg: #0b0b0d;
+            --apple-card-bg: rgba(22, 22, 23, 0.8);
+            --apple-white: #ffffff;
+            --apple-platinum: #f5f5f7;
+            --apple-text-dim: #86868b;
+            --apple-border: rgba(255, 255, 255, 0.08);
+            --apple-border-hover: rgba(255, 255, 255, 0.22);
+            --apple-link: #2997ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: -0.015em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--apple-black);
+        }
+
+        body {
+            background-color: var(--apple-black);
+            color: var(--apple-platinum);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 140px 24px;
+        }
+
+        /* Apple Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--apple-border);
+            z-index: 1000;
+            padding: 18px 0;
+            text-align: center;
+        }
+        nav a {
+            color: var(--apple-platinum);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0.65;
+            transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            text-decoration: none;
+        }
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section with True Apple Dark Mode Layout Background */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 24px;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(8,8,10,0.95)), url('https://i.pinimg.com/736x/97/28/27/9728272e5c16bf390aaf1066c86376f7.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            background: linear-gradient(180deg, var(--apple-white) 40%, var(--apple-text-dim) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.6rem;
+            color: var(--apple-text-dim);
+            max-width: 720px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Apple Premium Buttons */
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .btn {
+            font-size: 1.05rem;
+            font-weight: 400;
+            border-radius: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--apple-white);
+            color: var(--apple-black);
+            padding: 12px 30px;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #f5f5f7;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--apple-link);
+            padding: 12px 0;
+            font-size: 1.1rem;
+        }
+        .btn-secondary::after {
+            content: ' ↗';
+            font-size: 0.9rem;
+            margin-left: 4px;
+            transition: transform 0.3s;
+        }
+        .btn-secondary:hover::after {
+            transform: translate(2px, -2px);
+        }
+
+        /* Advanced Custom Apple-Scroll Animation Engine */
+        .apple-animate {
+            opacity: 0;
+            transform: translateY(50px) scale(0.97);
+            filter: blur(10px);
+            transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        .apple-animate.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+
+        /* Section Manifesto Typography */
+        section {
+            padding: 140px 0;
+            border-bottom: 1px solid var(--apple-border);
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--apple-text-dim);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+
+        .large-paragraph {
+            font-size: 2.2rem;
+            line-height: 1.45;
+            color: var(--apple-text-dim);
+            max-width: 1000px;
+            font-weight: 600;
+        }
+
+        .white-text {
+            color: var(--apple-platinum);
+        }
+
+        /* Apple-Style Bento Grid (Luxury Workspace Finish) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--apple-card-bg);
+            backdrop-filter: blur(30px) saturate(140%);
+            -webkit-backdrop-filter: blur(30px) saturate(140%);
+            border-radius: 28px;
+            padding: 50px;
+            border: 1px solid var(--apple-border);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 320px;
+        }
+
+        .bento-card:hover {
+            border-color: var(--apple-border-hover);
+            background: rgba(24, 24, 26, 0.9);
+            transform: scale(1.01);
+        }
+
+        .col-7 { grid-column: span 7; }
+        .col-5 { grid-column: span 5; }
+
+        .bento-card h3 {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            font-weight: 600;
+            color: var(--apple-white);
+        }
+
+        .bento-card p {
+            color: var(--apple-text-dim);
+            font-size: 1.1rem;
+            line-height: 1.55;
+        }
+
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .showcase-card {
+            background: var(--apple-card-bg);
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--apple-border);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-card:hover {
+            border-color: var(--apple-border-hover);
+            transform: scale(1.005);
+        }
+
+        .media-container {
+            width: 100%;
+            height: 380px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--apple-border);
+            position: relative;
+        }
+
+        .card-meta {
+            padding: 40px;
+        }
+
+        .card-meta h4 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--apple-white);
+        }
+        .card-meta p {
+            color: var(--apple-text-dim);
+            font-size: 1.05rem;
+            line-height: 1.45;
+        }
+
+        /* Apple Luxury Footer */
+        footer {
+            border-top: 1px solid var(--apple-border);
+            padding: 140px 24px;
+            text-align: center;
+            background: var(--apple-black);
+        }
+
+        footer h3 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+            font-weight: 700;
+            background: linear-gradient(180deg, var(--apple-white) 0%, var(--apple-text-dim) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-credits {
+            margin-top: 80px;
+            font-size: 0.75rem;
+            color: #515154;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            header h1 { font-size: 3.2rem; }
+            header p { font-size: 1.25rem; }
+            h2 { font-size: 2.5rem; }
+            .large-paragraph { font-size: 1.5rem; }
+            .bento-card { grid-column: span 12; min-height: 260px; padding: 32px; }
+            .showcase-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Apple Navigation Bar -->
+    <nav>
+        <a href="#portfolio">Liraj Suthankumar &mdash; Post-Production Portfolio</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1 class="apple-animate">Cinematic Vision.<br>Precision Rendering.</h1>
+        <p class="apple-animate">High-end video editing, surgical colour grading, and elite gaming post-production engineered for absolute clarity.</p>
+        <div class="btn-group apple-animate">
+            <a href="https://www.fiverr.com/seller_onboarding/overview" target="_blank" class="btn btn-primary">Hire on Fiverr</a>
+            <a href="https://www.linkedin.com/in/mirunath-suthankumar-b8b786415/" target="_blank" class="btn btn-secondary">Connect on LinkedIn</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Manifesto Section -->
+        <section>
+            <div class="section-label apple-animate">Introduction</div>
+            <p class="large-paragraph apple-animate">
+                Performance is everything. I construct visual experiences by balancing the cadence of editing with the laws of color chemistry. Utilizing <span class="white-text">Premiere Pro, DaVinci Resolve, and Photoshop</span>, raw capture maps flawlessly into luxury content. 
+                <br><br>
+                Backed by exhaustive <span class="white-text">PC architecture intelligence</span>, latency disappears—enabling hyper-fast iteration and flawless timeline delivery.
+            </p>
+        </section>
+
+        <!-- Bento Grid Block Layout -->
+        <section>
+            <div class="section-label apple-animate">Capabilities</div>
+            <h2 class="apple-animate">Pro workflows. Built for scale.</h2>
+            
+            <div class="bento-grid">
+                <div class="bento-card col-7 apple-animate">
+                    <h3>Advanced Gaming</h3>
+                    <p>Frame-accurate pacing, custom multi-track acoustic synchronization, and momentum tracking tailored specifically for elite broadcast aesthetics.</p>
+                </div>
+                <div class="bento-card col-5 apple-animate">
+                    <h3>Chromative Study</h3>
+                    <p>Cinematic look-up translation and vector matching calculated purely within DaVinci Resolve color spaces.</p>
+                </div>
+                <div class="bento-card col-5 apple-animate">
+                    <h3>Graphic Asset Design</h3>
+                    <p>High-contrast digital photo manipulation and thumbnail rendering built using Photoshop layout designs.</p>
+                </div>
+                <div class="bento-card col-7 apple-animate">
+                    <h3>Infrastructure Speed</h3>
+                    <p>Hardware optimization and technical troubleshooting mechanics integrated directly to trigger extreme render speeds and instantly clear project revisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Project Gallery -->
+        <section id="portfolio">
+            <div class="section-label apple-animate">Portfolio</div>
+            <h2 class="apple-animate">Selected Creations.</h2>
+            
+            <div class="showcase-grid">
+                <div class="showcase-card apple-animate">
+                    <div class="media-container" style="background-image: url('https://i.ytimg.com/vi/YI5CJ377BtE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCKVnKxfRhNtLafkAivmJqkrn2SHA');"></div>
+                    <div class="card-meta">
+                        <h4>Gaming Post-Production Workflow</h4>
+                        <p>High-retention pace mechanics, sound design architecture, and custom timeline asset integration.</p>
+                    </div>
+                </div>
+                <div class="showcase-card apple-animate">
+                    <div class="media-container" style="background-image: url('https://i.pinimg.com/736x/97/28/27/9728272e5c16bf390aaf1066c86376f7.jpg');"></div>
+                    <div class="card-meta">
+                        <h4>Chroma Correction & Color Space Grading</h4>
+                        <p>Raw camera log balancing, exposure mapping, and fine-tuned aesthetic studio tone matching.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Apple Luxury Footer Area -->
+    <footer>
+        <div class="container apple-animate" style="padding: 0;">
+            <h3>Designed to make an impact.</h3>
+            <div class="btn-group" style="justify-content: center; margin-bottom: 20px;">
+                <a href="https://www.fiverr.com/seller_onboarding/overview" target="_blank" class="btn btn-primary">Start a Fiverr Order</a>
+            </div>
+            <p class="footer-credits">&copy; 2026 Liraj Suthankumar. All rights reserved. Configured with pure professional precision.</p>
+        </div>
+    </footer>
+
+    <!-- Native JavaScript Scroll Observer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const animatedElements = document.querySelectorAll('.apple-animate');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -10% 0px', 
+                threshold: 0.05 
+            };
+
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else {
+                        if(entry.boundingClientRect.top > 0) {
+                            entry.target.classList.remove('show');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => scrollObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
